@@ -1,5 +1,6 @@
 import { heroBlock } from "@/blocks/hero";
 import { slugField } from "@/fields/slug";
+import { invalidatePage } from "@/lib/isr";
 import { CollectionConfig } from "payload";
 
 export const Pages: CollectionConfig = {
@@ -40,7 +41,13 @@ export const Pages: CollectionConfig = {
     },
   ],
   hooks: {
-    afterChange: [],
-    afterDelete: [],
+    afterChange: [
+      ({ previousDoc, doc }) => {
+        invalidatePage(doc.slug);
+        if (previousDoc.slug && previousDoc.slug !== doc.slug)
+          invalidatePage(previousDoc.slug);
+      },
+    ],
+    afterDelete: [({ doc }) => invalidatePage(doc.slug)],
   },
 };
