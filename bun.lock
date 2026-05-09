@@ -8,11 +8,13 @@
         "@payloadcms/db-postgres": "^3.84.1",
         "@payloadcms/next": "^3.84.1",
         "@t3-oss/env-nextjs": "^0.13.11",
+        "clsx": "^2.1.1",
         "next": "16.2.6",
         "payload": "^3.84.1",
         "react": "19.2.4",
         "react-dom": "19.2.4",
         "sharp": "^0.34.5",
+        "tailwind-merge": "^3.5.0",
         "zod": "^4.4.3",
       },
       "devDependencies": {
@@ -1190,6 +1192,8 @@
     "supports-preserve-symlinks-flag": ["supports-preserve-symlinks-flag@1.0.0", "", {}, "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w=="],
 
     "tabbable": ["tabbable@6.4.0", "", {}, "sha512-05PUHKSNE8ou2dwIxTngl4EzcnsCDZGJ/iCLtDflR/SHB/ny14rXc+qU5P4mG9JkusiV7EivzY9Mhm55AzAvCg=="],
+
+    "tailwind-merge": ["tailwind-merge@3.5.0", "", {}, "sha512-I8K9wewnVDkL1NTGoqWmVEIlUcB9gFriAEkXkfCjX5ib8ezGxtR3xD7iZIxrfArjEsH7F1CHD4RFUtxefdqV/A=="],
 
     "tailwindcss": ["tailwindcss@4.3.0", "", {}, "sha512-y6nxMGB1nMW9R6k96e5gdIFzcfL/gTJRNaqGes1YvkLnPVXzWgbqFF2yLC0T8G774n24cx3Pe8XrKoniCOAH+Q=="],
 

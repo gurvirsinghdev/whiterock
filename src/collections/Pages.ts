@@ -31,6 +31,12 @@ export const Pages: CollectionConfig = {
         },
       ],
     },
-    { type: "blocks", name: "blocks", label: "Blocks", blocks: [heroBlock] },
+    {
+      type: "blocks",
+      name: "blocks",
+      label: "Blocks",
+      blocks: [heroBlock],
+      required: true,
+    },
   ],
 };
