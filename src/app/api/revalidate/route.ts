@@ -1,4 +1,5 @@
 import { env } from "@/env";
+import { locales } from "@/lib/locales";
 import { revalidatePath } from "next/cache";
 
 export async function POST(request: Request) {
@@ -9,6 +10,8 @@ export async function POST(request: Request) {
     });
   }
 
-  revalidatePath(body.slug);
+  locales.forEach((locale) => {
+    revalidatePath(`/${locale}${body.slug}`);
+  });
   return Response.json({ status: true });
 }

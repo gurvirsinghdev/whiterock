@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function Blocks({ blocks }: Props) {
-  return blocks.map((block) => {
+  return (blocks ?? []).map((block) => {
     switch (block.blockType) {
       case "hero":
         return <HeroBlock key={block.id} block={block} />;

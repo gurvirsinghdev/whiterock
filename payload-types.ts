@@ -88,10 +88,10 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'fr') | ('en' | 'fr')[];
   globals: {};
   globalsSelect: {};
-  locale: null;
+  locale: 'en' | 'fr';
   widgets: {
     collections: CollectionsWidget;
   };
@@ -132,19 +132,21 @@ export interface Page {
   slug: string;
   page_title: string;
   meta_description?: string | null;
-  blocks: {
-    heading: string;
-    subheading?: string | null;
-    background_image: number | Media;
-    buttons: {
-      label: string;
-      url: string;
-      id?: string | null;
-    }[];
-    id?: string | null;
-    blockName?: string | null;
-    blockType: 'hero';
-  }[];
+  blocks?:
+    | {
+        heading: string;
+        subheading?: string | null;
+        background_image: number | Media;
+        buttons: {
+          label: string;
+          url: string;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero';
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }

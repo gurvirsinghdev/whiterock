@@ -24,11 +24,13 @@ export const Pages: CollectionConfig = {
           name: "page_title",
           label: "Page Title",
           required: true,
+          localized: true,
         },
         {
           type: "textarea",
           name: "meta_description",
           label: "Meta Description",
+          localized: true,
         },
       ],
     },
@@ -37,7 +39,6 @@ export const Pages: CollectionConfig = {
       name: "blocks",
       label: "Blocks",
       blocks: [heroBlock],
-      required: true,
     },
   ],
   hooks: {

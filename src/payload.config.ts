@@ -4,6 +4,7 @@ import { buildConfig } from "payload";
 import { postgresAdapter } from "@payloadcms/db-postgres";
 import { Pages } from "@/collections/Pages";
 import { Media } from "@/collections/Media";
+import { locales } from "./lib/locales";
 
 export default buildConfig({
   sharp,
@@ -14,4 +15,9 @@ export default buildConfig({
       connectionString: env.DB_URL,
     },
   }),
+  localization: {
+    locales,
+    fallback: true,
+    defaultLocale: "en",
+  },
 });
