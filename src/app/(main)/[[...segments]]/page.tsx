@@ -40,9 +40,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: page.page_title,
     description: page.meta_description,
     alternates: {
-      canonical: `/en/${slug}`,
+      canonical: `/en${slug}`,
       languages: locales.reduce(
-        (acc, locale) => ({ ...acc, [locale]: `/${locale}/${slug}` }),
+        (acc, locale) => ({ ...acc, [locale]: `/${locale}${slug}` }),
         {},
       ),
     },
