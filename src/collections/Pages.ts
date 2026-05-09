@@ -39,4 +39,8 @@ export const Pages: CollectionConfig = {
       required: true,
     },
   ],
+  hooks: {
+    afterChange: [],
+    afterDelete: [],
+  },
 };
