@@ -1,3 +1,4 @@
+import { heroBlock } from "@/blocks/hero";
 import { slugField } from "@/fields/slug";
 import { CollectionConfig } from "payload";
 
@@ -30,5 +31,6 @@ export const Pages: CollectionConfig = {
         },
       ],
     },
+    { type: "blocks", name: "blocks", label: "Blocks", blocks: [heroBlock] },
   ],
 };
