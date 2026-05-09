@@ -1,4 +1,4 @@
-import { env } from "../../env";
+import { env } from "@/env";
 
 export const formatSlug = (input: string = "") => {
   const slug = input
@@ -14,7 +14,7 @@ export const fetchPage = async (slug: string) => {
   const apiPath = "/api/pages?";
   const queryOptions = `where[slug][equals]=${slug}`;
 
-  const requestUrl = `http://localhost:3000${apiPath}${queryOptions}`;
+  const requestUrl = `${env.NEXT_PUBLIC_SITE_URL}${apiPath}${queryOptions}`;
   const request = await fetch(requestUrl, { next: { revalidate: 0 } });
   return request.json();
 };
