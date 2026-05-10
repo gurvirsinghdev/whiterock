@@ -20,4 +20,6 @@ export default buildConfig({
     fallback: true,
     defaultLocale: "en",
   },
+  cors: ["http://localhost:3000", "https://whiterock-dev.gurvirsingh.me"],
+  csrf: ["http://localhost:3000", "https://whiterock-dev.gurvirsingh.me"],
 });

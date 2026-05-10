@@ -1,4 +1,5 @@
 import { heroBlock } from "@/blocks/hero";
+import { partnersBlock } from "@/blocks/partners";
 import { slugField } from "@/fields/slug";
 import { invalidatePage } from "@/lib/isr";
 import { CollectionConfig } from "payload";
@@ -38,7 +39,7 @@ export const Pages: CollectionConfig = {
       type: "blocks",
       name: "blocks",
       label: "Blocks",
-      blocks: [heroBlock],
+      blocks: [heroBlock, partnersBlock],
     },
   ],
   hooks: {
