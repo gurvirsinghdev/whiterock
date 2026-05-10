@@ -26,6 +26,7 @@ export const Services: CollectionConfig = {
       name: "description",
       label: "Description",
       required: true,
+      localized: true,
     },
   ],
 };

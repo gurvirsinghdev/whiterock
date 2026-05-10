@@ -23,12 +23,17 @@ export default function ServicesBlock({ block }: Props) {
           )
           .map(({ service }) => (
             <div key={service.id} className="space-y-4">
-              {/*eslint-disable-next-line*/}
-              <img
-                src={(service.image as Media).url!}
-                alt={(service.image as Media).alt ?? "Service Image"}
-                className="rounded-md aspect-square object-cover sm:aspect-video"
-              />
+              <div className="aspect-square relative w-full rounded-md md:aspect-video overflow-hidden">
+                <div className="absolute -z-10 inset-0 animate-pulse bg-neutral-200 "></div>
+                {/*eslint-disable-next-line*/}
+                <img
+                  src={(service.image as Media).url!}
+                  alt={(service.image as Media).alt ?? "Service Image"}
+                  verify-full
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
               <h4 className="text-lg font-heading font-medium leading-2 pt-2">
                 {service.name}
               </h4>
