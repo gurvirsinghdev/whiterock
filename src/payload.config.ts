@@ -5,10 +5,11 @@ import { postgresAdapter } from "@payloadcms/db-postgres";
 import { Pages } from "@/collections/Pages";
 import { Media } from "@/collections/Media";
 import { locales } from "./lib/locales";
+import { Services } from "./collections/Services";
 
 export default buildConfig({
   sharp,
-  collections: [Pages, Media],
+  collections: [Pages, Media, Services],
   secret: env.PAYLOAD_SECRET,
   db: postgresAdapter({
     pool: {

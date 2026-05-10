@@ -1,6 +1,7 @@
 import HeroBlock from "./hero-block";
 import { PageBlocks } from "@/lib/intefaces";
 import PartnersBlock from "./partners-block";
+import ServicesBlock from "./services-block";
 
 interface Props {
   blocks: PageBlocks;
@@ -14,6 +15,9 @@ export default function Blocks({ blocks }: Props) {
 
       case "partners":
         return <PartnersBlock key={block.id} block={block} />;
+
+      case "service":
+        return <ServicesBlock key={block.id} block={block} />;
 
       default:
         return <p key={idx}>Component for this block not found!</p>;

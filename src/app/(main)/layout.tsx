@@ -7,7 +7,7 @@ const bodyFont = DM_Sans({
   subsets: ["latin"],
 });
 const headingFont = Poppins({
-  weight: ["900"],
+  weight: ["500", "900"],
   subsets: ["latin"],
   variable: "--font-heading",
 });
