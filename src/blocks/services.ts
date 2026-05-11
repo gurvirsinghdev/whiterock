@@ -1,9 +1,11 @@
+import { menuItem } from "@/fields/menu-item";
 import { Block } from "payload";
 
 export const servicesBlock: Block = {
   slug: "service",
   labels: { singular: "Service", plural: "Services" },
   fields: [
+    ...menuItem,
     {
       type: "text",
       name: "block_heading",

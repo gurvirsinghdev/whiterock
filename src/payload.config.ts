@@ -11,6 +11,7 @@ import {
 } from "@opennextjs/cloudflare";
 import { sqliteD1Adapter } from "@payloadcms/db-d1-sqlite";
 import { GetPlatformProxyOptions } from "wrangler";
+import { SiteSettings } from "./collections/SiteSettings";
 
 const getCloudflareContextFromWrangler =
   async (): Promise<CloudflareContext> => {
@@ -30,6 +31,7 @@ const cloudflare = isProduction
   : await getCloudflareContextFromWrangler();
 
 export default buildConfig({
+  globals: [SiteSettings],
   collections: [Pages, Media, Services],
   secret: env.PAYLOAD_SECRET,
   db: sqliteD1Adapter({ binding: cloudflare.env.D1 }),
@@ -38,8 +40,8 @@ export default buildConfig({
     fallback: true,
     defaultLocale: "en",
   },
-  cors: ["https://whiterock.gurvirsingh.me"],
-  csrf: ["https://whiterock.gurvirsingh.me"],
+  cors: ["http://localhost:3000", "https://whiterock.gurvirsingh.me"],
+  csrf: ["http://localhost:3000", "https://whiterock.gurvirsingh.me"],
   plugins: [
     r2Storage({
       collections: { media: true },

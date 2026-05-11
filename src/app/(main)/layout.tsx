@@ -1,5 +1,5 @@
-import { cn } from "@/lib/cn";
 import "./globals.css";
+import { cn } from "@/lib/cn";
 import { DM_Sans, Poppins } from "next/font/google";
 
 const bodyFont = DM_Sans({
@@ -12,7 +12,7 @@ const headingFont = Poppins({
   variable: "--font-heading",
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

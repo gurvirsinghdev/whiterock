@@ -25,6 +25,9 @@ export type ImageOptions = {
 };
 
 export const getImageUrl = (filename: string, options: ImageOptions = {}) => {
+  if (process.env.NODE_ENV !== "production")
+    return `/api/media/file/${filename}`;
+
   const siteUrl = env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
   const mediaHost = `https://media.${new URL(siteUrl).host}`;
 

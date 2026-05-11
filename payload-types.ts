@@ -91,8 +91,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'fr') | ('en' | 'fr')[];
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'site-settings': SiteSetting;
+  };
+  globalsSelect: {
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
+  };
   locale: 'en' | 'fr';
   widgets: {
     collections: CollectionsWidget;
@@ -137,6 +141,8 @@ export interface Page {
   blocks?:
     | (
         | {
+            is_menu_item?: boolean | null;
+            menu_label?: string | null;
             heading: string;
             subheading?: string | null;
             background_image: number | Media;
@@ -150,6 +156,8 @@ export interface Page {
             blockType: 'hero';
           }
         | {
+            is_menu_item?: boolean | null;
+            menu_label?: string | null;
             logos?:
               | {
                   logo?: (number | null) | Media;
@@ -161,6 +169,8 @@ export interface Page {
             blockType: 'partners';
           }
         | {
+            is_menu_item?: boolean | null;
+            menu_label?: string | null;
             block_heading: string;
             block_subheading: string;
             services?:
@@ -331,6 +341,8 @@ export interface PagesSelect<T extends boolean = true> {
         hero?:
           | T
           | {
+              is_menu_item?: T;
+              menu_label?: T;
               heading?: T;
               subheading?: T;
               background_image?: T;
@@ -347,6 +359,8 @@ export interface PagesSelect<T extends boolean = true> {
         partners?:
           | T
           | {
+              is_menu_item?: T;
+              menu_label?: T;
               logos?:
                 | T
                 | {
@@ -359,6 +373,8 @@ export interface PagesSelect<T extends boolean = true> {
         service?:
           | T
           | {
+              is_menu_item?: T;
+              menu_label?: T;
               block_heading?: T;
               block_subheading?: T;
               services?:
@@ -464,6 +480,32 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: number;
+  metadata?: {
+    logo?: (number | null) | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  metadata?:
+    | T
+    | {
+        logo?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

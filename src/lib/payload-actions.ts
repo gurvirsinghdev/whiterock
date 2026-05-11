@@ -1,6 +1,7 @@
 import { getPayload } from "payload";
 import config from "@payload-config";
 import { notFound } from "next/navigation";
+import { unstable_cache } from "next/cache";
 
 export const getPage = async (slug: string, locale: string) => {
   const payload = await getPayload({ config });
@@ -19,6 +20,20 @@ export const getPage = async (slug: string, locale: string) => {
   if (!page) notFound();
   return page;
 };
+
+export const getSettings = async () => {
+  const payload = await getPayload({ config });
+  return payload.findGlobal({
+    slug: "site-settings",
+  });
+};
+export const unstableGetSettings = unstable_cache(
+  getSettings,
+  ["settings-cache"],
+  {
+    tags: ["settings"],
+  },
+);
 
 export const getPages = async () => {
   const payload = await getPayload({ config });

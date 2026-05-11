@@ -8,3 +8,7 @@
   --color-soft-gray: #f4f6f7;
   --font-heading: var(--font-heading);
 }
+
+html {
+  scroll-behavior: smooth;
+}

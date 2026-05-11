@@ -1,7 +1,7 @@
 import { PageBlock } from "@/lib/intefaces";
 import Bounded from "./bounded";
 import { Media, Service } from "@payload-types";
-import { getImageUrl } from "@/lib/utils";
+import { formatSlug, getImageUrl } from "@/lib/utils";
 
 type Props = {
   block: PageBlock<"service">;
@@ -9,7 +9,13 @@ type Props = {
 export default function ServicesBlock({ block }: Props) {
   return (
     <Bounded as="section" className="p-4 space-y-4">
-      <div>
+      <div
+        id={
+          !block.is_menu_item
+            ? undefined
+            : formatSlug(block.menu_label!).replace(/^\//, "")
+        }
+      >
         <h2 className="font-heading font-medium text-lg">
           {block.block_heading}
         </h2>

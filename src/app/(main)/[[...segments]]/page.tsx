@@ -1,8 +1,10 @@
 import { Metadata } from "next";
 import Blocks from "@/components/blocks";
-import { joinSegments } from "@/lib/utils";
-import { getPage, getPages } from "@/lib/payload-actions";
+import { formatSlug, joinSegments } from "@/lib/utils";
+import { getPage, getPages, unstableGetSettings } from "@/lib/payload-actions";
 import { locales } from "@/lib/locales";
+import { AppContext, PrimaryMenu } from "@/providers/AppProvider";
+import Navigation from "@/components/navigation";
 
 type Props = {
   params: Promise<{
@@ -28,8 +30,29 @@ const splitIntoLocaleAndSlug = (segments: string[]) => {
 export default async function Page({ params }: Props) {
   const { segments } = await params;
   const { locale, slug } = splitIntoLocaleAndSlug(segments);
-  const page = await getPage(slug, locale);
-  return <Blocks blocks={page.blocks} />;
+
+  const [settings, page] = await Promise.all([
+    unstableGetSettings(),
+    getPage(slug, locale),
+  ]);
+
+  const menu: PrimaryMenu = (page.blocks ?? [])
+    .filter((block) => block.is_menu_item)
+    .flatMap((block) => {
+      return {
+        label: block.menu_label!,
+        link: formatSlug(block.menu_label!).replace(/^\//, "#"),
+      };
+    });
+
+  console.log(menu);
+
+  return (
+    <AppContext value={{ settings, menu }}>
+      <Navigation />
+      <Blocks blocks={page.blocks} />
+    </AppContext>
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
