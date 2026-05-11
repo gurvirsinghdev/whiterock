@@ -38,8 +38,8 @@ export default buildConfig({
     fallback: true,
     defaultLocale: "en",
   },
-  cors: ["http://localhost:3000", "https://whiterock.gurvirsingh.me"],
-  csrf: ["http://localhost:3000", "https://whiterock.gurvirsingh.me"],
+  cors: ["https://whiterock.gurvirsingh.me"],
+  csrf: ["https://whiterock.gurvirsingh.me"],
   plugins: [
     r2Storage({
       collections: { media: true },

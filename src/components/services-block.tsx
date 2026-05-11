@@ -1,6 +1,7 @@
 import { PageBlock } from "@/lib/intefaces";
 import Bounded from "./bounded";
 import { Media, Service } from "@payload-types";
+import { getImageUrl } from "@/lib/utils";
 
 type Props = {
   block: PageBlock<"service">;
@@ -27,9 +28,14 @@ export default function ServicesBlock({ block }: Props) {
                 <div className="absolute -z-10 inset-0 animate-pulse bg-neutral-200 "></div>
                 {/*eslint-disable-next-line*/}
                 <img
-                  src={(service.image as Media).url!}
+                  src={getImageUrl((service.image as Media).filename!, {
+                    width: 720,
+                    format: "webp",
+                    quality: 70,
+                  })}
                   alt={(service.image as Media).alt ?? "Service Image"}
-                  verify-full
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

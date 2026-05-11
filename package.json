@@ -10,6 +10,7 @@
     "lint": "eslint",
     "payload:generate-types": "payload generate:types",
     "payload:importmap": "payload generate:importmap",
+    "cloudflare-dev": "wrangler dev",
     "cloudflare-build": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion",
     "preview": "pnpm cloudflare-build && opennextjs-cloudflare preview",
     "deploy": "pnpm cloudflare-build && opennextjs-cloudflare deploy",

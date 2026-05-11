@@ -12,6 +12,7 @@
     {
       "binding": "R2",
       "bucket_name": "whiterock",
+      "remote": true
     },
   ],
   "d1_databases": [

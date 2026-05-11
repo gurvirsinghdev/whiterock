@@ -2,6 +2,7 @@ import { PageBlock } from "@/lib/intefaces";
 import { Media } from "@payload-types";
 import Bounded from "./bounded";
 import Link from "next/link";
+import { getImageUrl } from "@/lib/utils";
 
 interface Props {
   block: PageBlock<"hero">;
@@ -14,11 +15,19 @@ export default function HeroBlock({ block }: Props) {
       <div>
         {/*eslint-disable-next-line*/}
         <img
-          src={heroImage.url!}
+          src={getImageUrl(heroImage.filename!, {
+            width: 1600,
+            format: "avif",
+            quality: 65,
+          })}
           alt={heroImage.alt}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           style={{ height: "70svh" }}
           className="object-cover object-bottom-right w-full"
         />
+
         <div className="bg-black/75 lg:bg-black/80 absolute inset-0"></div>
         <div className="bg-primary/10 absolute inset-0"></div>
       </div>
