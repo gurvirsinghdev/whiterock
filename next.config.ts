@@ -6,7 +6,6 @@ initOpenNextCloudflareForDev();
 const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
-  allowedDevOrigins: ["whiterock-dev.gurvirsingh.me"],
   serverExternalPackages: ["drizzle-kit", "pg-cloudflare"],
 };
 

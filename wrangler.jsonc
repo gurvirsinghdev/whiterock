@@ -14,5 +14,16 @@
       "bucket_name": "whiterock",
     },
   ],
+  "d1_databases": [
+    {
+      "binding": "D1",
+      "database_id": "f63fbdec-2de5-4297-a0c7-0cd8110c8330",
+      "database_name": "whiterock",
+      "remote": true,
+    },
+  ],
   "routes": [{ "pattern": "whiterock.gurvirsingh.me", "custom_domain": true }],
+  "observability": {
+    "logs": { "enabled": true, "invocation_logs": true },
+  },
 }

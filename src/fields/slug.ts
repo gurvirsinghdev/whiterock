@@ -7,7 +7,6 @@ export const slugField: Field = {
   required: true,
   admin: {
     description: "URL-friendly identifier for a pathname.",
-    components: { Field: "@/components/slug-field" },
   },
   hooks: {
     beforeValidate: [({ value }) => formatSlug(value)],
